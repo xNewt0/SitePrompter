@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Site Clone Prompter",
+  "version": "1.0",
+  "description": "Analyzes the current page and generates a detailed clone prompt copied to clipboard.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "clipboardWrite"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Clone Site",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}

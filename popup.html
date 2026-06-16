@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Clone Prompter</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-panel: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --success: #10b981;
+      --border: #334155;
+    }
+    body {
+      width: 380px;
+      margin: 0;
+      padding: 16px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .header img { width: 24px; height: 24px; }
+    .header h1 { font-size: 16px; margin: 0; font-weight: 600; }
+    
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    .status-box {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    #status { color: var(--success); font-weight: 500; }
+    
+    textarea {
+      width: 100%;
+      height: 200px;
+      background: #0b1120;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 10px;
+      font-family: 'Fira Code', 'Courier New', Courier, monospace;
+      font-size: 12px;
+      resize: vertical;
+      box-sizing: border-box;
+      outline: none;
+    }
+    textarea:focus { border-color: var(--primary); }
+    
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn:hover { background: var(--primary-hover); }
+    .btn:active { transform: scale(0.98); }
+    .btn.success { background: var(--success); }
+    
+    .loader {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #fff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      animation: rotation 1s linear infinite;
+      display: none;
+    }
+    @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icon48.png" alt="logo">
+    <h1>Site Clone Prompter</h1>
+  </div>
+  
+  <div class="panel">
+    <div class="status-box">
+      <span>Target: <span id="target-url">Ready</span></span>
+      <span id="status"></span>
+    </div>
+    <textarea id="prompt-output" placeholder="Generated prompt will appear here..."></textarea>
+  </div>
+  
+  <button class="btn" id="generate-btn">
+    <span class="loader" id="loader"></span>
+    <span id="btn-text">Generate & Copy Prompt</span>
+  </button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
